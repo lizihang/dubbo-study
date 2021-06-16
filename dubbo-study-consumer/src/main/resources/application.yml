@@ -1,0 +1,15 @@
+# 端口号
+server:
+  port: 8089
+
+# dubbo配置
+dubbo:
+  application:
+    name: dubbo-consumer
+  protocol:
+    port: 20880
+    name: dubbo
+  registry:
+    address: zookeeper://127.0.0.1:2181
+    timeout: 10000
+
