@@ -22,6 +22,6 @@ public class TestServiceImpl implements TestService
 	@Override
 	public TestPO getTestPO(int id)
 	{
-		return new TestPO(id,"TestName","Test@163.com",18);
+		return new TestPO(id, "TestName", "Test@163.com", 18);
 	}
 }
