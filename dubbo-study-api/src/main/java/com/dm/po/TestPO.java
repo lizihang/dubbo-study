@@ -20,17 +20,19 @@ public class TestPO implements Serializable
 	private String name;
 	private String email;
 	private int    age;
+	private String version;
 
 	public TestPO()
 	{
 	}
 
-	public TestPO(int id, String name, String email, int age)
+	public TestPO(int id, String name, String email, int age, String version)
 	{
 		this.id = id;
 		this.name = name;
 		this.email = email;
 		this.age = age;
+		this.version = version;
 	}
 
 	public int getId()
@@ -73,9 +75,19 @@ public class TestPO implements Serializable
 		this.age = age;
 	}
 
+	public String getVersion()
+	{
+		return version;
+	}
+
+	public void setVersion(String version)
+	{
+		this.version = version;
+	}
+
 	@Override
 	public String toString()
 	{
-		return "TestPO{" + "id=" + id + ", name='" + name + '\'' + ", email='" + email + '\'' + ", age=" + age + '}';
+		return "TestPO{" + "id=" + id + ", name='" + name + '\'' + ", email='" + email + '\'' + ", age=" + age + ", version='" + version + '\'' + '}';
 	}
 }

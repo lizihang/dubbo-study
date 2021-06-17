@@ -166,6 +166,76 @@ public class TestController
 如果provider中@DubboService()中加了版本号，那么@DubboReference()中也要加版本号。
 ```
 
+### 4.属性配置
+**(1)启动检查**
+在有相互依赖的情况下，如果开启检查，则服务都启动不了
+```yaml
+dubbo:
+  consumer:
+    # 关闭消费者的启动时检查：（没有提供者时报错）
+    check: false
+```
+
+**(2)超时时间**
+优先级：消费者Method>提供者method>消费者Reference>提供者Service>消费者全局配置provider>提供者全局配置consumer。
+```yaml
+dubbo:
+  consumer:
+    # 超时时间
+    timeout: 10000
+  provider:
+    # 超时时间
+    timeout: 10000
+```
+
+**(3)重试次数**
+服务超时后重试次数【retries】，不包含第一次调用，0代表不重试。   
+*我们应该在幂等方法上设置重试次数【查询、删除、修改】，在非幂等方法上禁止设置重试次数。   
+*幂等：指多次运行方法所产生的最终效果是一致的。   
+
+
+**(4)多版本配置**
+提供者@DubboService注解中增加version配置
+```java
+@DubboService(version = "1.0.0")
+public class TestServiceImpl implements TestService
+{
+	@Override
+	public TestPO getTestPO(int id)
+	{
+		return new TestPO(id, "TestName", "Test@163.com", 18, "1.0.0");
+	}
+}
+```
+```java
+@DubboService(version = "2.0.0")
+public class TestServiceImpl2 implements TestService
+{
+	@Override
+	public TestPO getTestPO(int id)
+	{
+		return new TestPO(id, "TestName", "Test@163.com", 18, "2.0.0");
+	}
+}
+```
+消费者@DubboReference注解中增加version配置
+```java
+@RestController
+public class TestController
+{
+	@DubboReference(version = "1.0.0")
+	TestService testService;
+}
+```
+```java
+@RestController
+public class TestController
+{
+	@DubboReference(version = "2.0.0")
+	TestService testService;
+}
+```
+
 ## 三、dubbo-admin
 GitHub地址：   
 https://github.com/apache/dubbo-admin   
