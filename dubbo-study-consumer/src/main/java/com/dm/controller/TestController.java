@@ -22,7 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class TestController
 {
-	@DubboReference(version = "2.0.0")
+	public static final String ver = "1.0.0";
+	@DubboReference(version = ver)
 	TestService testService;
 
 	@GetMapping("/getTestPO/{id}")

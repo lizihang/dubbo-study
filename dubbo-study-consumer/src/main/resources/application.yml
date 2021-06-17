@@ -1,13 +1,13 @@
 # 端口号
 server:
-  port: 8089
+  port: 8090
 
 # dubbo配置，参考：https://dubbo.apache.org/zh/docs/v2.7/user/references/
 dubbo:
   application:
     name: dubbo-consumer
   protocol:
-    port: 20881
+    port: 20880
     name: dubbo
   scan:
     base-packages: com.dm.service
