@@ -15,5 +15,5 @@ package com.dm.service;
  */
 public interface Module1Service
 {
-	String testModule1();
+	String testModule1(String param);
 }

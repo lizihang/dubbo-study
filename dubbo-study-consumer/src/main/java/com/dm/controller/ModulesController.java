@@ -32,7 +32,7 @@ public class ModulesController
 	@GetMapping("testModule1")
 	public String testModule1()
 	{
-		return module1Service.testModule1();
+		return module1Service.testModule1("param");
 	}
 
 	@GetMapping("testModule2")
