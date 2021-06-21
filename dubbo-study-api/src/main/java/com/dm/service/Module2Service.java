@@ -1,5 +1,7 @@
 package com.dm.service;
 
+import com.dm.vo.QueryParams;
+import com.dm.vo.Result;
 /**
  * <p>标题：</p>
  * <p>功能：</p>
@@ -15,5 +17,5 @@ package com.dm.service;
  */
 public interface Module2Service
 {
-	String testModule2();
+	Result testModule2(QueryParams params);
 }

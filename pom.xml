@@ -53,6 +53,13 @@
                 <version>${dubbo.version}</version>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/org.apache.dubbo/dubbo-monitor-default -->
+            <dependency>
+                <groupId>org.apache.dubbo</groupId>
+                <artifactId>dubbo-monitor-default</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+
             <!-- dubbo api -->
             <dependency>
                 <groupId>org.apache.dubbo</groupId>

@@ -3,6 +3,8 @@ package com.dm.controller;
 import com.dm.service.Module1Service;
 import com.dm.service.Module2Service;
 import com.dm.service.Module3Service;
+import com.dm.vo.QueryParams;
+import com.dm.vo.Result;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,9 +38,9 @@ public class ModulesController
 	}
 
 	@GetMapping("testModule2")
-	public String testModule2()
+	public Result testModule2()
 	{
-		return module2Service.testModule2();
+		return module2Service.testModule2(new QueryParams());
 	}
 
 	@GetMapping("testModule3")
