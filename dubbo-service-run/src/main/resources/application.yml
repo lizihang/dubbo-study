@@ -1,16 +1,14 @@
-# 端口号
-server:
-  port: 8091
-
 # dubbo配置，参考：https://dubbo.apache.org/zh/docs/v2.7/user/references/
 dubbo:
   application:
-    name: dubbo-provider
+    name: dubbo-service
   protocol:
     port: 20881
     name: dubbo
-  scan:
-    base-packages: com.dm.service
+  # 启动类配置了@EnableDubbo注解则不需要配置扫描，参考：
+  # PostProcessorRegistrationDelegate类中invokeBeanDefinitionRegistryPostProcessors方法
+  # scan:
+    # base-packages: com.dm
   # 注册中心配置
   registry:
     # 单机配置方法1：
